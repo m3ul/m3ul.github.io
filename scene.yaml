@@ -9,13 +9,13 @@ lights:
         diffuse: .3
         ambient: 1
 
-sources:
-    xyz_osm:
-        type: MVT
-        url: https://xyz.api.here.com/tiles/osmbase/256/all/{z}/{x}/{y}.mvt
-        max_zoom: 16
-        url_params:
-            access_token: STUDIO-TOKEN
+# sources:
+#     xyz_osm:
+#         type: MVT
+#         url: https://xyz.api.here.com/tiles/osmbase/256/all/{z}/{x}/{y}.mvt
+#         max_zoom: 16
+#         url_params:
+#             access_token: STUDIO-TOKEN
 
 layers:
     earth:
