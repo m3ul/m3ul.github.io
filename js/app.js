@@ -1,9 +1,24 @@
 import { $, $$, to24HourFormat, formatRangeLabel, toDateInputFormat } from './helpers.js';
 import { center, hereCredentials } from './config.js';
+import Search from './Search.js';
 
 //Height calculations
 const height = $('#content-group-1').clientHeight || $('#content-group-1').offsetHeight;
 $('.content').style.height = height + 'px';
+
+/* ...
+* This code can go near the top of the file
+* ...
+*/
+
+//Manage initial state
+$('#slider-val').innerText = formatRangeLabel($('#range').value, 'time');
+$('#date-value').value = toDateInputFormat(new Date()); 
+
+//Add event listeners
+$$('.isoline-controls').forEach(c => c.onchange = () => calculateIsoline());
+$$('.view-controls').forEach(c => c.onchange = () => calculateView());
+
 
 
 /* ...
@@ -120,3 +135,6 @@ async function calculateIsoline() {
    map.addObject(polygon);
 }
 calculateIsoline();
+
+new Search('Berlin, DEU');
+export { calculateIsoline, marker, router, geocoder }
