@@ -1,34 +1,53 @@
 <html>
 <head>
    <title>Testing the avoid functionality</title>
-   <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-   <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
-  type="text/javascript" charset="utf-8"></script>
-<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
-  type="text/javascript" charset="utf-8"></script>
+   
+  <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+     type="text/javascript" charset="utf-8"></script>
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+     type="text/javascript" charset="utf-8"></script>
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"
+     type="text/javascript" charset="utf-8"></script>
   
 </head>
 
-<body>
-   <div style="width: 640px; height: 480px" id="mapContainer"></div>
+<body >
+   <div style="width: device-width; height: device-height" id="mapContainer" ></div>
 
 
    <script>
       var platform = new H.service.Platform({
-  'apikey': 'h5F7UNUeRM96YMP8D5foodDLcfFcUFGTfLm72FDDiMI{YOUR_API_KEY}'
+  'apikey': 'h5F7UNUeRM96YMP8D5foodDLcfFcUFGTfLm72FDDiMI'
 });
 
    // Obtain the default map types from the platform object:
 var defaultLayers = platform.createDefaultLayers();
+
+coords = {lat: 30.353662, lng: 76.365046};
 
 // Instantiate (and display) a map object:
 var map = new H.Map(
     document.getElementById('mapContainer'),
     defaultLayers.vector.normal.map,
     {
-      zoom: 10,
-      center: { lat: 52.5, lng: 13.4 }
+      zoom: 17,
+      center: { lat: 30.353662, lng: 76.365046 }
     });
+    var mapEvents = new H.mapevents.MapEvents(map);
+
+    map.addEventListener('tap', function(evt) {
+    // Log 'tap' and 'mouse' events:
+    console.log(evt.type, evt.currentPointer.type);
+  });
+
+var behavior = new H.mapevents.Behavior(mapEvents);
+
+
+var icon = new H.map.Icon('graphics/markerHouse.png');
+var marker = new H.map.Marker({ lat: 30.353662, lng: 76.365046}, { icon: icon });
+
+map.addObject(marker);
    </script>
    
 </body>
