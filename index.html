@@ -42,9 +42,9 @@ function calculateRouteFromAtoB (platform) {
         representation: 'display',
         routeattributes : 'waypoints,summary,shape,legs',
         maneuverattributes: 'direction,action',
-        waypoint0: '52.516858379,13.3884717', // Brandenburg Gate
-        waypoint1: '52.51733824,13.394678415',  // Friedrichstraße Railway Station
-        avoidareas: '52.517100760,13.3905424488;52.5169701849,13.391808451'
+        waypoint0: '30.353661,76.365043', // Brandenburg Gate
+        waypoint1: '30.351300,76.367243',  // Friedrichstraße Railway Station
+        avoidareas: '30.353430,76.364734;30.352912,76.365657'
       };
   
   
@@ -104,7 +104,7 @@ function calculateRouteFromAtoB (platform) {
   var map = new H.Map(mapContainer,
     defaultLayers.vector.normal.map,{
     center: {lat:52.5160, lng:13.3779},
-    zoom: 13,
+    zoom: 11,
     pixelRatio: window.devicePixelRatio || 1
   });
   // add a resize listener to make sure that the map occupies the whole container
@@ -299,7 +299,7 @@ function calculateRouteFromAtoB (platform) {
   
   // Now use the map as required...
   calculateRouteFromAtoB (platform);
-  var rect = new H.map.Rect(new H.geo.Rect(52.517100760,13.3905424488,52.5169701849,13.391808451));
+  var rect = new H.map.Rect(new H.geo.Rect(30.353430,76.364734,30.352912,76.365657));
 map.addObject(rect);
 
    </script>
