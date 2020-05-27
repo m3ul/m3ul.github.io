@@ -194,6 +194,19 @@
 
 
    <script>
+const Http = new XMLHttpRequest();
+const url='https://b725f05e-9ff0-4a0f-9170-3aaae3ca4f15-bluemix.cloudantnosqldb.appdomain.cloud';
+Http.open("GET", url);
+Http.send();
+
+Http.onreadystatechange = (e) => {
+  console.log(Http.responseText)
+}
+
+
+
+
+
       var platform = new H.service.Platform({
   'apikey': 'h5F7UNUeRM96YMP8D5foodDLcfFcUFGTfLm72FDDiMI'
 });
